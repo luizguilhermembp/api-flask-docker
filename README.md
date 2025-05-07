@@ -41,7 +41,7 @@ docker build -t flask-api .
 # Executar na porta 80
 docker run -d -p 80:80 flask-api
 ```
-⚙️ CI/CD - Deploy automático
+## ⚙️ CI/CD - Deploy automático
 
 Sempre que um push for feito na branch main, o GitHub Actions:
 	1.	Conecta via SSH na VM (Azure)
@@ -52,18 +52,18 @@ Sempre que um push for feito na branch main, o GitHub Actions:
 
 Workflow localizado em: .github/workflows/deploy.yml
 
-📁 Estrutura do projeto
+## 📁 Estrutura do projeto
 
 	•	app.py: Código da API Flask
 	•	requirements.txt: Dependências do projeto
 	•	Dockerfile: Container configurado com Gunicorn
 	•	.github/workflows/deploy.yml: Pipeline de deploy com GitHub Actions
 
-✨ Autor
+### ✨ Autor
 
 Luiz Guilherme – linkedin.com/in/luizguilhermembp
 
-🧠 Observações
+### 🧠 Observações
 
 ✔️ Projeto desenvolvido em ambiente com restrições (macOS sem Docker)
 
