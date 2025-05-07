@@ -1,6 +1,6 @@
 # api-flask-docker
 
-# 🚀 Flask API - Soma & Multiplicação
+## 🚀 Flask API - Soma & Multiplicação
 
 API simples construída com Flask, documentada com Swagger, containerizada com Docker e implantada automaticamente via GitHub Actions em uma VM no Azure.
 
