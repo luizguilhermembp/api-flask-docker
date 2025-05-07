@@ -1,0 +1,32 @@
+name: Deploy Flask API
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Deploy via SSH to Azure VM
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: 20.150.222.135
+        username: luiz
+        key: ${{ secrets.SERVER_KEY }}
+        script: |
+          cd ~/app || mkdir ~/app && cd ~/app
+          if [ -d ".git" ]; then
+            git pull origin main
+          else
+            git clone https://github.com/luizguilhermembp/api-flask-docker.git .
+          fi
+          docker stop flask-api || true
+          docker rm flask-api || true
+          docker build -t flask-api .
+          docker run -d -p 80:80 --name flask-api flask-api
